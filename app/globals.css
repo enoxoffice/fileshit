@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { background: #FAFAFA; }
+
+.bot { transform-origin: 50% 100%; }
+.bot-idle { animation: bot-bob 3s ease-in-out infinite; }
+.bot-working { animation: bot-think 1.2s ease-in-out infinite; }
+.bot-happy { animation: bot-jump 0.6s ease-in-out 4; }
+.bot-error { animation: bot-wobble 0.5s ease-in-out 4; }
+.bot-eye { transform-box: fill-box; transform-origin: center; animation: bot-blink 4s infinite; }
+.bot-spin { transform-box: fill-box; transform-origin: center; animation: bot-rot 1s linear infinite; }
+.bot-led { animation: bot-pulse 1.4s ease-in-out infinite; }
+@keyframes bot-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+@keyframes bot-think { 0%,100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@keyframes bot-jump { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes bot-wobble { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-6deg); } 75% { transform: rotate(6deg); } }
+@keyframes bot-blink { 0%,92%,100% { transform: scaleY(1); } 96% { transform: scaleY(0.1); } }
+@keyframes bot-rot { to { transform: rotate(360deg); } }
+@keyframes bot-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+@media (prefers-reduced-motion: reduce) {
+  .bot, .bot-eye, .bot-spin, .bot-led { animation: none !important; }
+}
+
+/* ShitBot: ekspresi tambahan */
+.bot-sleepy { animation: bot-breathe 4s ease-in-out infinite; }
+.bot-curious { transform: rotate(-4deg) scale(1.05); transition: transform 0.2s; }
+.bot-talk { animation: bot-nod 0.45s ease-in-out infinite; }
+.bot-love { animation: bot-jump 0.9s ease-in-out infinite; }
+.bot-look { animation: bot-look 1.6s ease-in-out infinite; }
+.bot-dot { animation: bot-dotpulse 1s ease-in-out infinite; }
+.bot-mouth { transform-box: fill-box; transform-origin: center; animation: bot-mouth 0.3s ease-in-out infinite alternate; }
+.bot-zzz { animation: bot-float 2.2s ease-in-out infinite; }
+.bot-twinkle { transform-box: fill-box; transform-origin: center; animation: bot-twinkle 0.9s ease-in-out infinite; }
+.bot-glitch { animation: bot-glitch 0.7s steps(4) infinite; }
+@keyframes bot-breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+@keyframes bot-nod { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+@keyframes bot-look { 0%,100% { transform: translateX(-5px); } 50% { transform: translateX(5px); } }
+@keyframes bot-dotpulse { 0%,100% { opacity: 0.2; } 50% { opacity: 1; } }
+@keyframes bot-mouth { from { transform: scaleY(0.3); } to { transform: scaleY(1); } }
+@keyframes bot-float { 0%,100% { opacity: 0.3; transform: translateY(2px); } 50% { opacity: 1; transform: translateY(-3px); } }
+@keyframes bot-twinkle { 0%,100% { transform: scale(0.5); opacity: 0.4; } 50% { transform: scale(1.2); opacity: 1; } }
+@keyframes bot-glitch { 0% { transform: translateY(0); } 100% { transform: translateY(26px); } }
+@media (prefers-reduced-motion: reduce) {
+  .bot-look, .bot-dot, .bot-mouth, .bot-zzz, .bot-twinkle, .bot-glitch { animation: none !important; }
+}
